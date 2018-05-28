@@ -252,7 +252,10 @@ def main():
     err_RNN_MASE = []
 
     # ===== In this example we produce forecasts for 100 randomly generated timeseries =====
-    data_all = np.array(np.random.random_integers(0, 100, (100, 20)), dtype=np.float32)
+    
+    df_yearly = pd.read_csv("../data/Yearly-train.csv", skiprows=0, index_col =0)
+    data_all= = df_yearly.T
+    #data_all = np.array(np.random.random_integers(0, 100, (100, 20)), dtype=np.float32)
     for i in range(0, 100):
         for j in range(0, 20):
             data_all[i, j] = j * 10 + data_all[i, j]
